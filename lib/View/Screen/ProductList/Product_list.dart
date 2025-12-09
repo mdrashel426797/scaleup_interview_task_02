@@ -26,6 +26,8 @@ class _ProductListState extends State<ProductList> {
     return GetBuilder<ProductListController>(
       builder: (controller) {
         return Scaffold(
+
+          // <<<<<<<<<<<<<<<this is app var >>>>>>>>>>>>>>>>>
           appBar: AppBar(
             centerTitle: true,
             backgroundColor: Colors.cyanAccent,
@@ -37,6 +39,7 @@ class _ProductListState extends State<ProductList> {
                 color: Color(0xff000000),
               ),
             ),
+            ///<<<<<<<<<<<<<<<<< light and dark icon >>>>>>>>>>>>>>>>>>>>
             actions: [
               IconButton(
                 onPressed: () {
@@ -49,6 +52,10 @@ class _ProductListState extends State<ProductList> {
             ],
           ),
 
+
+
+          ///<<<<<<<<<<<<<<this is body>>>>>>>>>>>>>>>>>>
+
           body: Visibility(
             visible: controller.loading == false,
             replacement: Center(child: CircularProgressIndicator()),
@@ -57,6 +64,10 @@ class _ProductListState extends State<ProductList> {
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
+
+                  ///<<<<<<<<<< search field >>>>>>>>>>>>>>>
+
+
                   child: TextField(
                     onChanged: (value) {
                       controller.searchProduct(value);
@@ -74,9 +85,9 @@ class _ProductListState extends State<ProductList> {
 
                 Expanded(
                   child: GridView.builder(
-                    physics: const AlwaysScrollableScrollPhysics(),
+                    physics:  AlwaysScrollableScrollPhysics(),
                     itemCount: controller.filteredList.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 8,
                       mainAxisSpacing: 8,
